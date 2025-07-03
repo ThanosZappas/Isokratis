@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="1.0"
+        android:scaleType="centerCrop"
+        android:src="@drawable/church_ceiling" />
+
+    <TextView
+        android:id="@+id/currentPitchText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/current_pitch_format"
+        android:textColor="@color/creamText"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    <!--    android:text="Current Pitch: ΝΗ, 160.00 Hz"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/currentPitchText"
+        android:layout_marginTop="1dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/upperPA_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_upper_pa"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/upperNH_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_upper_nh"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/ZW_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_zw"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/KE_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_ke"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/DI_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_di"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/GA_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_ga"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/BOU_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_bou"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/PA_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_pa"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/NH_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1.1"
+            android:text="@string/pitch_nh"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/zw_Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="3dp"
+            android:layout_weight="1"
+            android:text="@string/pitch_lower_zw"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

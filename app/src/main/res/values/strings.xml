@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Isokratis</string>
+    <string name="current_pitch_format">Current Pitch: %1$s, %2$.2f Hz</string>
+    <string name="background_opacity">Background Opacity:</string>
+
+    <!-- Pitch button labels -->
+    <string name="pitch_upper_pa">\u03A0\u0391\u0384</string>  <!-- ΠΑ' -->
+    <string name="pitch_upper_nh">\u039D\u0397\u0384</string>  <!-- ΝΗ' -->
+    <string name="pitch_zw">\u0396\u03A9</string>             <!-- ΖΩ -->
+    <string name="pitch_ke">\u039A\u0395</string>             <!-- ΚΕ -->
+    <string name="pitch_di">\u0394\u0399</string>             <!-- ΔΙ -->
+    <string name="pitch_ga">\u0393\u0391</string>             <!-- ΓΑ -->
+    <string name="pitch_bou">\u0392\u039F\u03A5</string>      <!-- ΒΟΥ -->
+    <string name="pitch_pa">\u03A0\u0391</string>             <!-- ΠΑ -->
+    <string name="pitch_nh">\u039D\u0397</string>             <!-- ΝΗ -->
+    <string name="pitch_lower_zw">\u0396\u03C9</string>       <!-- ζω -->
+</resources>
