@@ -8,9 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/pantokrator_app_icon_bright"
+        android:icon="@mipmap/troxos"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/pantokrator_app_icon_bright"
+        android:roundIcon="@mipmap/troxos"
         android:supportsRtl="true"
         android:theme="@style/Theme.Isokratis">
         <activity

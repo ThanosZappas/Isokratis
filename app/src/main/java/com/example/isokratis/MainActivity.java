@@ -1,9 +1,7 @@
 package com.example.isokratis;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +9,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView currentPitchText;
     private ToneGenerator toneGenerator;
     private Button currentlyPlayingButton = null;
-    private ImageView backgroundImage;
 
     private final PitchData[] PITCHES = {
         new PitchData(R.id.upperPA_Button, "ΠΑ'", 293.66f),
@@ -23,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         new PitchData(R.id.BOU_Button, "ΒΟΥ", 161.67f),
         new PitchData(R.id.PA_Button, "ΠΑ", 146.83f),
         new PitchData(R.id.NH_Button, "ΝΗ", 130.81f),
-        new PitchData(R.id.zw_Button, "ζω", 121.12f)
+        new PitchData(R.id.zw_Button, "Ζω", 121.12f)
     };
 
     @Override
@@ -32,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         currentPitchText = findViewById(R.id.currentPitchText);
-        backgroundImage = findViewById(R.id.backgroundImage);
         currentPitchText.setText("Current pitch: -");
 
         toneGenerator = new ToneGenerator();

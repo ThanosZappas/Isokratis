@@ -6,10 +6,9 @@ import android.media.AudioTrack;
 
 public class ToneGenerator {
     private static final int SAMPLE_RATE = 44100; // Standard quality sample rate
-    private static final float AMPLITUDE = 0.8f; // Increased base amplitude (80% of max)
-    private static final float FADE_DURATION_SEC = 0.3f; // Fade-in duration
-    private static final int CHOIR_VOICES = 5; // Number of voices in the choir
-    private static final float CHOIR_DETUNE_HZ = 1.5f; // Detuning amount in Hz
+    private static final float AMPLITUDE = 0.8f; // Base amplitude (80% of max)
+    private static final float FADE_DURATION_SEC = 0.3f; // Fade-in/out duration
+    private static final double[] HARMONIC_AMPLITUDES = {1.0, 0.5, 0.25, 0.125}; // Harmonics with decreasing amplitude
     private boolean isPlaying = false;
     private AudioTrack audioTrack = null;
     private Thread playThread = null;
@@ -69,32 +68,24 @@ public class ToneGenerator {
         audioTrack.play();
 
         short[] buffer = new short[bufferSize];
-        double[] angles = new double[CHOIR_VOICES];
-        double[] angleIncrements = new double[CHOIR_VOICES];
-
-        // Calculate angle increments for each voice
-        for (int i = 0; i < CHOIR_VOICES; i++) {
-            float detunedFrequency = frequency + (i - CHOIR_VOICES / 2) * CHOIR_DETUNE_HZ;
-            angleIncrements[i] = 2 * Math.PI * detunedFrequency / SAMPLE_RATE;
-        }
+        double angle = 0;
+        double angleIncrement = 2 * Math.PI * frequency / SAMPLE_RATE;
 
         int fadeInSamples = (int) (FADE_DURATION_SEC * SAMPLE_RATE);
         int sampleCount = 0;
 
-        // Keep generating audio as long as we're playing
         while (isPlaying) {
             for (int i = 0; i < buffer.length; i++) {
                 double sample = 0;
 
-                // Generate and mix choir voices
-                for (int v = 0; v < CHOIR_VOICES; v++) {
-                    sample += Math.sin(angles[v]);
-                    angles[v] += angleIncrements[v];
-                    if (angles[v] > 2 * Math.PI) {
-                        angles[v] -= 2 * Math.PI;
-                    }
+                // Generate fundamental frequency and harmonics
+                for (int h = 0; h < HARMONIC_AMPLITUDES.length; h++) {
+                    double harmonicAngle = angle * (h + 1);
+                    sample += Math.sin(harmonicAngle) * HARMONIC_AMPLITUDES[h];
                 }
-                sample /= CHOIR_VOICES; // Normalize the sample
+
+                // Normalize the sample
+                sample /= HARMONIC_AMPLITUDES.length;
 
                 // Apply fade-in and base amplitude
                 float fadeMultiplier = sampleCount < fadeInSamples ?
@@ -104,6 +95,10 @@ public class ToneGenerator {
                 // Convert to 16-bit PCM
                 buffer[i] = (short) (Short.MAX_VALUE * sample);
                 sampleCount++;
+                angle += angleIncrement;
+                if (angle > 2 * Math.PI) {
+                    angle -= 2 * Math.PI;
+                }
             }
 
             // Write the audio data to the track
