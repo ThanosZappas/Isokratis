@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         currentPitchText = findViewById(R.id.currentPitchText);
         backgroundImage = findViewById(R.id.backgroundImage);
+        currentPitchText.setText("Current pitch: -");
 
         toneGenerator = new ToneGenerator();
 
